@@ -144,9 +144,9 @@ $(function(){
 		var aspect = $(this).attr("id");
 		if (aspect!="fire"&&aspect!="water"&&aspect!="order"&&aspect!="air"&&aspect!="entropy"&&aspect!="earth"){
 			var combination = combinations[aspect];
-			$("#combination_box #left").html('<img src="aspects/color/' + translate[combination[0]] + '.png" /><div class="name">' + formatAspectName(translate[combination[0]]) + '</div><div class="desc">' + combination[0] + '</div>');
-			$("#combination_box #right").html('<img src="aspects/color/' + translate[combination[1]] + '.png" /><div class="name">' + formatAspectName(translate[combination[1]]) + '</div><div class="desc">' + combination[1] + '</div>');
-			$("#combination_box #equals").html('<img src="aspects/color/' + translate[aspect] + '.png" /><div class="name">' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div>');
+			$("#combination_box #left").html('<img src="aspects/color/' + translate[combination[0]] + '.png" /><div class="name">' + formatAspectName(translate[combination[0]]) + '</div><div class="desc">' + getLang(combination[0]) + '</div>');
+			$("#combination_box #right").html('<img src="aspects/color/' + translate[combination[1]] + '.png" /><div class="name">' + formatAspectName(translate[combination[1]]) + '</div><div class="desc">' + getLang(combination[1]) + '</div>');
+			$("#combination_box #equals").html('<img src="aspects/color/' + translate[aspect] + '.png" /><div class="name">' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + getLang(aspect) + '</div>');
 			$(this).mousemove(function(e) {
 				$("#combination_box").css({left:e.pageX+10, top:e.pageY-100}).show();
 			});
@@ -175,7 +175,7 @@ $(function(){
 		aspects = aspects.concat(tier_aspects);
 		push_addons(aspects, combinations);
 		aspects.forEach(function(aspect) {
-			$('#avail').append('<li class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></li>');
+			$('#avail').append('<li class="aspect" id="'+aspect+'"><img src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + getLang(aspect) + '</div></li>');
 		});
 		toggle_addons(addon_aspects);
 		var ddData = [];
@@ -186,7 +186,7 @@ $(function(){
 		ddData.sort(ddDataSort);
 		function format(d) {
 			var aspect = d.id;
-			return '<div class="aspect" id="'+aspect+'"><img style="margin: 4px 5px 0 0" src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + aspect + '</div></div>'
+			return '<div class="aspect" id="'+aspect+'"><img style="margin: 4px 5px 0 0" src="aspects/color/' + translate[aspect] + '.png" /><div>' + formatAspectName(translate[aspect]) + '</div><div class="desc">' + getLang(aspect) + '</div></div>'
 		}
 		$('#toSel,#fromSel').select2({
 			data: ddData,
@@ -200,7 +200,7 @@ $(function(){
     				return translate[a.id].localeCompare(translate[b.id]);
     			});
         	},
-		    matcher: function(search,text) { return text.toUpperCase().indexOf(search.toUpperCase())>=0 || translate[text].toUpperCase().indexOf(search.toUpperCase())>=0 }
+		    matcher: function(search,text) { return getLang(text).toUpperCase().indexOf(search.toUpperCase())>=0 || translate[text].toUpperCase().indexOf(search.toUpperCase())>=0 }
 		});
 		$('#toSel,#fromSel').select2("val", "air");
 		graph={};
@@ -236,17 +236,17 @@ $(function(){
 				aspect_count[e]++;
 				step_count++;
 			}
-			$('#'+id).append('<li class="aspect_result aspect" id="' + e + '"><img src="aspects/color/' + translate[e] + '.png" /><div>' + formatAspectName(translate[e]) + '</div><div class="desc">' + e + '</div></li><li>↓</li>');
+			$('#'+id).append('<li class="aspect_result aspect" id="' + e + '"><img src="aspects/color/' + translate[e] + '.png" /><div>' + formatAspectName(translate[e]) + '</div><div class="desc">' + getLang(e) + '</div></li><li>↓</li>');
 		});
 		$('#'+id).children().last().remove();
-		$('#'+id).append('<li id="aspects_used">Aspects Used</li>');
+		$('#'+id).append('<li id="aspects_used">使用要素</li>');
 		var used = '<ul id="aspects_used_list">';
 		$.each(aspect_count, function(aspect, value){
 			if(value>0) {
 				used = $(used).append('<li title="'+translate[aspect]+': '+value+'" style="background-image:url(\'aspects/color/'+translate[aspect]+'.png\')">'+value+'</li>');
 			}
 		});
-		used = $(used).append("<div>Total Steps: "+ step_count+"</div>");
+		used = $(used).append("<div>總步數： "+ step_count+"</div>");
 		used = $(used).append('</ul>');
 		$('#'+id).append(used);
 		$('#'+id).dialog("open");
@@ -254,5 +254,12 @@ $(function(){
 	function getWeight(aspect) {
 		var el = $("#" + aspect);
 		return (el.hasClass("unavail")) ? 100 : 1;
+	}
+	function getLang(aspect) {
+		if(aspect in lang){
+			return lang[aspect];
+		}else{
+			return aspect;
+		}
 	}
 });
