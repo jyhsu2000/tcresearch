@@ -1,0 +1,41 @@
+{
+	"title": "Thaumcraft 4 研究幫手",
+	"version": "版本：",
+	"from": "從：",
+	"to": "到：",
+	"min_steps": "最小步數：",
+	"addons": "擴充：",
+	"available_spects": "可用要素：",
+	"find_connection": "尋找連接方式",
+	"close_results": "關閉所有結果",
+	"sel_all": "選擇所有要素",
+	"desel_all": "取消選擇所有要素",
+	"aspects_used": "使用要素",
+	"total_steps": "總步數：",
+	"help": "說明",
+	"help_p1": [
+		"這個工具是 Thaumcraft 4 的研究輔助工具。",
+		"若研究筆記當中有兩種你不知道該如何連接的要素，",
+		"只要在對應的下拉選單（<strong>從：</strong> 和 <strong>到：</strong>）當中分別選擇它們，",
+		"並指定兩個要素之間的<strong>最小步數</strong>，並點擊<strong>尋找連接方式</strong>，",
+		"此工具將會尋找兩個要素連接的最佳連接方式（搭配最小步數）。",
+		"注意：有時使用步數會超過指定的最小步數，這是由於該步數無法完成連接"
+	],
+	"help_p2": [
+		"若不滿意得到的路徑（因為其中包含了你還沒有或是稀有的要素），",
+		"可以直接在<strong>可用要素</strong>區塊禁用它們，此工具將會試著尋找不使用它們的最佳連接方式。",
+		"注意：這可能使步數增加。",
+		"若因為太多要素被禁用而無法不使用它們就找到連接方式，此工具將會嘗試找出使用最少被禁用要素的連接方式。"
+	],
+	"author": [
+		"此工具原作者為 <a href=\"https://github.com/ythri\" style=\"color:#55a;\" target=\"_blank\">ythri</a> ，",
+		"此多國語言版本由 <a href=\"https://github.com/jyhsu2000\" style=\"color:#55a;\" target=\"_blank\">jyhsu2000</a> 維護，<br />",
+		"若對此多國語言版有問題或建議，或想協助新增語言包，",
+		"請使用GitHub的<a href=\"https://github.com/jyhsu2000/tcresearch/issues\" style=\"color:#55a;\" target=\"_blank\">Issues</a>功能"
+	],
+	"copyright": [
+		"此工具基於 <a href=\"http://creativecommons.org/licenses/by/4.0/\" style=\"color:#55a;\" target=\"_blank\">Creative Commons Attribution 4.0 License</a> 授權，",
+		"原版原始碼可至 <a href=\"https://github.com/ythri/tcresearch/tree/gh-pages\" style=\"color:#55a;\" target=\"_blank\">這裡</a> 查看，",
+		"此多國語言版本原始碼可至 <a href=\"https://github.com/jyhsu2000/tcresearch/tree/gh-pages\" style=\"color:#55a;\" target=\"_blank\">這裡</a> 查看。"
+	]
+}

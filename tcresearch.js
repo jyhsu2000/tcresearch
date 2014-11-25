@@ -239,14 +239,14 @@ $(function(){
 			$('#'+id).append('<li class="aspect_result aspect" id="' + e + '"><img src="aspects/color/' + translate[e] + '.png" /><div>' + formatAspectName(translate[e]) + '</div><div class="desc">' + getLang(e) + '</div></li><li>↓</li>');
 		});
 		$('#'+id).children().last().remove();
-		$('#'+id).append('<li id="aspects_used">使用要素</li>');
+		$('#'+id).append('<li id="aspects_used">' + i18n.t("aspects_used") + '</li>');
 		var used = '<ul id="aspects_used_list">';
 		$.each(aspect_count, function(aspect, value){
 			if(value>0) {
 				used = $(used).append('<li title="'+translate[aspect]+': '+value+'" style="background-image:url(\'aspects/color/'+translate[aspect]+'.png\')">'+value+'</li>');
 			}
 		});
-		used = $(used).append("<div>總步數： "+ step_count+"</div>");
+		used = $(used).append("<div>" + i18n.t("total_steps") + step_count+"</div>");
 		used = $(used).append('</ul>');
 		$('#'+id).append(used);
 		$('#'+id).dialog("open");
@@ -256,10 +256,6 @@ $(function(){
 		return (el.hasClass("unavail")) ? 100 : 1;
 	}
 	function getLang(aspect) {
-		if(aspect in lang){
-			return lang[aspect];
-		}else{
-			return aspect;
-		}
+		return i18n.t("aspect:" + aspect);
 	}
 });
