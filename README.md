@@ -33,4 +33,7 @@ If too many aspects are disabled and there are no paths left without any of thos
 Language Pack Provider
 ==========
 English(English) by [ythri](https://github.com/ythri)  
-繁體中文(Traditional Chinese) by [jyhsu2000](https://github.com/jyhsu2000)
+繁體中文(Traditional Chinese) by [jyhsu2000](https://github.com/jyhsu2000)  
+  
+Help translate Thaumcraft 4 Research Helper into your language.  
+Use [Issues](https://github.com/jyhsu2000/tcresearch/issues) or [Pull Requests](https://github.com/jyhsu2000/tcresearch/pulls) to submit your language file.
