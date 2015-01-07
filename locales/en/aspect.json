@@ -56,5 +56,10 @@
 	"sloth": "sloth",
 	"pride": "pride",
 	"lust": "lust",
-	"time": "time"
+	"time": "time",
+	"electricity": "electricity",
+	"magnetism": "magnetism",
+	"cheatiness": "cheatiness",
+	"radioactivity": "radioactivity",
+	"stronito": "stronito"
 }
